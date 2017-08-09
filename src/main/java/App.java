@@ -10,6 +10,7 @@ import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
+        staticFileLocation("/public");
         //get: delete all posts
         get("/travel/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

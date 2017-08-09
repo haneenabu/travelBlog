@@ -4,10 +4,12 @@
 
     {{#if travels}}
         {{#each travels }}
-            <p>Travel Location:</p>
-            <p>{{ title }}</p>
-            <p>Location description:</p>
-            <p>{{ description }} <a href="/travel/{{id}}">read more...</a></p>
+            <div class="col-md-6">
+                <p class="title">Travel Location:</p>
+                <p>{{ title }}</p>
+                <p class="description">Location description:</p>
+                <p>{{ description }} <br><a href="/travel/{{id}}">read more...</a></p>
+            </div>
         {{/each}}
     {{else}}
         <p>No locations to list!</p>
