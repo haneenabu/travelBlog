@@ -4,12 +4,13 @@
 
     {{#if travels}}
         {{#each travels }}
-            <p>Current travels:</p>
+            <p>Travel Location:</p>
             <p>{{ title }}</p>
-            <p>{{ description }} <a href="/posts/{{id}}">read more...</a></p>
+            <p>Location description:</p>
+            <p>{{ description }} <a href="/travel/{{id}}">read more...</a></p>
         {{/each}}
     {{else}}
-        <p>No posts!</p>
+        <p>No locations to list!</p>
     {{/if}}
 {{/partial}}
 

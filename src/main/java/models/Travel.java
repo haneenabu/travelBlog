@@ -7,6 +7,9 @@ public class Travel {
     private String description;
     private static ArrayList<Travel> instances = new ArrayList<>();
     private int id;
+
+
+    private boolean published;
     private static int increment = 0;
 
 
@@ -16,6 +19,7 @@ public class Travel {
         instances.add(this);
         increment++;
         this.id = increment;
+        this.published = false;
     }
 
     public static void clearAllTravel(){
@@ -34,8 +38,17 @@ public class Travel {
     public void deleteByID(int id){
         instances.remove(Travel.findById(id));
     }
+    public void update(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
 
-//GETTERS
+
+    //GETTERS
+
+    public boolean getPublished() {
+        return this.published;
+    }
     public String getTitle() {
         return title;
     }
