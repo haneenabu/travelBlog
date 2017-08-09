@@ -1,0 +1,16 @@
+{{#partial "content"}}
+
+    <h1>Location list!</h1>
+
+    {{#if travels}}
+        {{#each travels }}
+            <p>Current travels:</p>
+            <p>{{ title }}</p>
+            <p>{{ description }} <a href="/posts/{{id}}">read more...</a></p>
+        {{/each}}
+    {{else}}
+        <p>No posts!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
