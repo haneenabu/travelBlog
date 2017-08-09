@@ -16,6 +16,7 @@ public class TravelTest {
 
     @After
     public void tearDown() throws Exception {
+        Travel.clearAllTravel();
     }
     @Test
     public void NewTestObjectGetsCorrectlyCreated_true() throws Exception {
@@ -33,6 +34,14 @@ public class TravelTest {
         Travel secondTravel = new Travel("Spain", "Spring 2018");
         assertTrue(Travel.getAll().contains(testTravel));
         assertTrue(Travel.getAll().contains(secondTravel));
+    }
+    @Test
+    public void ClearsAllTravel() throws Exception{
+        Travel testTravel = setupNewTravel();
+        Travel secondTravel = new Travel("Belize","Summer 2012");
+        Travel.clearAllTravel();
+        assertFalse(Travel.getAll().contains(testTravel));
+        assertFalse(Travel.getAll().contains(secondTravel));
     }
     //helper methods
     public Travel setupNewTravel(){

@@ -14,6 +14,10 @@ public class Travel {
         instances.add(this);
     }
 
+    public static void clearAllTravel(){
+        instances.clear();
+    }
+
 
 //GETTERS
     public String getTitle() {
