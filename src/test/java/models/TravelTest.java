@@ -43,6 +43,34 @@ public class TravelTest {
         assertFalse(Travel.getAll().contains(testTravel));
         assertFalse(Travel.getAll().contains(secondTravel));
     }
+    @Test
+    public void travelInstantiateWithId() throws Exception {
+        Travel testTravel = setupNewTravel();
+        assertEquals(1, testTravel.getId());
+    }
+    @Test
+    public void travelInstantiateWithMultipleEntries() throws Exception {
+        Travel testTravel = setupNewTravel();
+        Travel secondTravel = new Travel("Istanbul", "December 2016");
+        assertEquals(1, testTravel.getId());
+        assertEquals(2, secondTravel.getId());
+    }
+    @Test
+    public void findBySpecificId() throws Exception{
+        Travel testTravel = setupNewTravel();
+        Travel secondTravel = new Travel("Istanbul", "December 2016");
+        assertEquals(2, Travel.findById(secondTravel.getId()).getId());
+        assertEquals("Istanbul", Travel.findById(secondTravel.getId()).getTitle());
+    }
+
+    @Test
+    public void deleteBySpecificId() throws Exception{
+        Travel testTravel = setupNewTravel();
+        Travel secondTravel = new Travel("Istanbul", "December 2016");
+        testTravel.deleteByID(1);
+        assertEquals(1, Travel.getAll().size());
+        assertEquals("Istanbul", Travel.findById(secondTravel.getId()).getTitle());
+    }
     //helper methods
     public Travel setupNewTravel(){
         return new Travel ("Brazil", "Summer 2017");
